@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -41,7 +40,10 @@ install_python() {
 install_project() {
   require_command python3
 
-  python3 -m venv .venv
+  if [ ! -d ".venv" ]; then
+    python3 -m venv .venv
+  fi
+
   source .venv/bin/activate
 
   python -m pip install --upgrade pip setuptools wheel
@@ -65,6 +67,7 @@ print_done() {
   echo "python scrap_feedback.py reports"
 }
 
+require_command curl
 install_homebrew
 install_python
 install_project
