@@ -1,5 +1,3 @@
-# scrap_feedback Help
-
 ## Overview
 
 This tool scrapes feedback from Canny-style boards and exports it into structured Markdown files.
